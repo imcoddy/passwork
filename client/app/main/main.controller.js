@@ -1,7 +1,8 @@
 'use strict';
+var bitcore = require('bitcore');
 
 angular.module('passworkApp')
-  .controller('MainCtrl', function ($scope, $http, socket) {
+  .controller('MainCtrl', function($scope, $http, socket) {
     $scope.awesomeThings = [];
 
     $http.get('/api/things').success(function(awesomeThings) {
@@ -10,10 +11,12 @@ angular.module('passworkApp')
     });
 
     $scope.addThing = function() {
-      if($scope.newThing === '') {
+      if ($scope.newThing === '') {
         return;
       }
-      $http.post('/api/things', { name: $scope.newThing });
+      $http.post('/api/things', {
+        name: $scope.newThing
+      });
       $scope.newThing = '';
     };
 
@@ -21,7 +24,15 @@ angular.module('passworkApp')
       $http.delete('/api/things/' + thing._id);
     };
 
-    $scope.$on('$destroy', function () {
+    $scope.encode = function() {
+      var thing = $scope.newThing || '';
+      var value = bitcore.deps.Buffer(thing);
+      var hash = bitcore.crypto.Hash.sha256(value);
+      var privateKey = new bitcore.PrivateKey(hash);
+      return privateKey.toAddress().toString();
+    };
+
+    $scope.$on('$destroy', function() {
       socket.unsyncUpdates('thing');
     });
   });
