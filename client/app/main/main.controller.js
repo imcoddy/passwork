@@ -25,13 +25,13 @@ angular.module('passworkApp')
     });
 
     $scope.addThing = function() {
-      if ($scope.newThing === '') {
+      if ($scope.siteInfo === '') {
         return;
       }
       $http.post('/api/things', {
-        name: $scope.newThing
+        name: $scope.siteInfo
       });
-      $scope.newThing = '';
+      $scope.siteInfo = '';
     };
 
     $scope.deleteThing = function(thing) {

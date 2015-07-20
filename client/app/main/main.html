@@ -19,23 +19,30 @@
   </div>
 
   <form class="thing-form">
-    <label>Syncs in realtime across clients</label>
+    <label>Private Info</label>
     <p class="input-group">
-      <input type="password" class="form-control" placeholder="Add a new thing here." ng-model="newThing">
+      <input type="password" class="form-control" placeholder="Your private information" ng-model="privateInfo">
       <span class="input-group-btn">
-        <button type="submit" class="btn btn-primary" ng-click="addThing()">Add New</button>
+        <button type="submit" class="btn btn-primary">Toggle</button>
+      </span>
+    </p>
+    <label>Site Info</label>
+    <p class="input-group">
+      <input type="password" class="form-control" placeholder="Add a new thing here." ng-model="siteInfo">
+      <span class="input-group-btn">
+        <button type="submit" class="btn btn-primary">Toggle</button>
       </span>
     </p>
     <label>Brain Address</label>
     <p class="input-group">
-      <input type="text" class="form-control" readonly="readonly" value="{{ newThing | brainAddress }}">
+      <input type="text" class="form-control" readonly="readonly" value="{{ privateInfo + siteInfo | brainAddress }}">
       <span class="input-group-btn">
         <button type="submit" class="btn btn-primary">Copy</button>
       </span>
     </p>
     <label>Brain Address Short</label>
     <p class="input-group">
-      <input type="text" class="form-control" readonly="readonly" value="{{ newThing | brainAddress | substring:1:17 }}">
+      <input type="text" class="form-control" readonly="readonly" value="{{ privateInfo + siteInfo | brainAddress | substring:1:17 }}">
       <span class="input-group-btn">
         <button type="submit" class="btn btn-primary">Copy</button>
       </span>
