@@ -2,6 +2,15 @@
 var bitcore = require('bitcore');
 
 angular.module('passworkApp')
+  .filter('brainAddress', function(){
+    return function(text){
+      var thing = text || '';
+      var value = bitcore.deps.Buffer(thing);
+      var hash = bitcore.crypto.Hash.sha256(value);
+      var privateKey = new bitcore.PrivateKey(hash);
+      return privateKey.toAddress().toString();
+    };
+  })
   .controller('MainCtrl', function($scope, $http, socket) {
     $scope.awesomeThings = [];
 
@@ -22,14 +31,6 @@ angular.module('passworkApp')
 
     $scope.deleteThing = function(thing) {
       $http.delete('/api/things/' + thing._id);
-    };
-
-    $scope.encode = function() {
-      var thing = $scope.newThing || '';
-      var value = bitcore.deps.Buffer(thing);
-      var hash = bitcore.crypto.Hash.sha256(value);
-      var privateKey = new bitcore.PrivateKey(hash);
-      return privateKey.toAddress().toString();
     };
 
     $scope.$on('$destroy', function() {
