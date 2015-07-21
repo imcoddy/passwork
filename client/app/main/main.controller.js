@@ -32,7 +32,7 @@ angular.module('passworkApp')
       //TODO implement copy password
       $scope.alerts.push({
         type: 'danger',
-        msg: 'Sorry this feature is not finished yet at the moment. Please select it yourself.'
+        msg: 'Sorry this feature is not finished yet at the moment. Please click on the text and select it yourself.'
       });
     };
 
