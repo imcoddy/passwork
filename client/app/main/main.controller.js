@@ -4,8 +4,10 @@ var bitcore = require('bitcore');
 angular.module('passworkApp')
   .filter('brainAddress', function() {
     return function(text) {
-      var thing = text || '';
-      var value = bitcore.deps.Buffer(thing);
+      if (!text || text === '') {
+        return '';
+      }
+      var value = bitcore.deps.Buffer(text);
       var hash = bitcore.crypto.Hash.sha256(value);
       var privateKey = new bitcore.PrivateKey(hash);
       return privateKey.toAddress().toString();
@@ -17,28 +19,11 @@ angular.module('passworkApp')
     };
   })
   .controller('MainCtrl', function($scope, $http, socket) {
-    $scope.awesomeThings = [];
-
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-      socket.syncUpdates('thing', $scope.awesomeThings);
-    });
-
-    $scope.addThing = function() {
-      if ($scope.siteInfo === '') {
-        return;
-      }
-      $http.post('/api/things', {
-        name: $scope.siteInfo
-      });
-      $scope.siteInfo = '';
-    };
-
-    $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
-    };
-
     $scope.$on('$destroy', function() {
       socket.unsyncUpdates('thing');
     });
+
+    $scope.onTextClick = function($event) {
+      $event.target.select();
+    };
   });
