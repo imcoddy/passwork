@@ -21,23 +21,23 @@
   <form class="thing-form" id="thing-form">
     <label>Combine your common private passphrase...</label>
     <p class="input-group">
-      <input type="password" class="form-control" placeholder="The password pattern you usually use" ng-model="privateInfo">
+      <input type="{{ privateInfoType }}" class="form-control" placeholder="The password pattern you usually use" ng-model="privateInfo" ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 1500, 'blur': 0 } }">
       <span class="input-group-btn">
-        <button type="submit" class="btn btn-primary">Show</button>
+        <button class="btn btn-primary" ng-click="togglePrivateInfo()">Show</button>
       </span>
     </p>
     <label>With the website info that varies...</label>
     <p class="input-group">
-      <input type="password" class="form-control" placeholder="Some text for the website" ng-model="siteInfo">
+      <input type="{{ siteInfoType }}" class="form-control" placeholder="Some text for the website" ng-model="siteInfo">
       <span class="input-group-btn">
-        <button type="submit" class="btn btn-primary">Show</button>
+        <button class="btn btn-primary" ng-click="toggleSiteInfo()">Show</button>
       </span>
     </p>
     <label>To generate your new password :)</label>
     <p class="input-group">
       <input type="text" class="form-control" readonly="readonly" value="{{ privateInfo + siteInfo | brainAddress | substring:1:17 }}" ng-click="onTextClick($event)">
       <span class="input-group-btn">
-        <button type="submit" class="btn btn-primary">Copy</button>
+        <button class="btn btn-primary">Copy</button>
       </span>
     </p>
     <label>Try again to make sure you get the same result.</label>

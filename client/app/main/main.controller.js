@@ -19,6 +19,16 @@ angular.module('passworkApp')
     };
   })
   .controller('MainCtrl', function($scope, $http, socket) {
+    $scope.privateInfoType = 'password';
+    $scope.siteInfoType = 'password';
+
+    $scope.togglePrivateInfo = function() {
+      $scope.privateInfoType = ($scope.privateInfoType === 'text' ? 'password' : 'text');
+    };
+    $scope.toggleSiteInfo = function() {
+      $scope.siteInfoType = ($scope.siteInfoType === 'text' ? 'password' : 'text');
+    };
+
     $scope.$on('$destroy', function() {
       socket.unsyncUpdates('thing');
     });
