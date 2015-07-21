@@ -21,6 +21,20 @@ angular.module('passworkApp')
   .controller('MainCtrl', function($scope, $http, socket) {
     $scope.privateInfoType = 'password';
     $scope.siteInfoType = 'password';
+    $scope.alerts = [];
+
+
+    $scope.closeAlert = function(index) {
+      $scope.alerts.splice(index, 1);
+    };
+
+    $scope.copyPassword = function() {
+      //TODO implement copy password
+      $scope.alerts.push({
+        type: 'danger',
+        msg: 'Sorry this feature is not finished yet at the moment. Please select it yourself.'
+      });
+    };
 
     $scope.togglePrivateInfo = function() {
       $scope.privateInfoType = ($scope.privateInfoType === 'text' ? 'password' : 'text');
