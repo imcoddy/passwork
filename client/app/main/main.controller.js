@@ -10,7 +10,7 @@ angular.module('passworkApp')
       var value = bitcore.deps.Buffer(text);
       var hash = bitcore.crypto.Hash.sha256(value);
       var privateKey = new bitcore.PrivateKey(hash);
-      return privateKey.toAddress().toString();
+      return privateKey.toWIF();
     };
   })
   .filter('substring', function() {

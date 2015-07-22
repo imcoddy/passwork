@@ -44,7 +44,7 @@
     </p>
     <label>To generate your new password :)</label>
     <p class="input-group">
-      <input type="text" class="form-control" readonly="readonly" value="{{ privateInfo + siteInfo | brainAddress | substring:1:17 }}" ng-click="onTextClick($event)">
+      <input type="text" class="form-control" readonly="readonly" value="{{ privateInfo + siteInfo | brainAddress | substring:2:18 }}" ng-click="onTextClick($event)">
       <span class="input-group-btn">
         <button class="btn btn-primary" ng-click="copyPassword()">Copy</button>
       </span>

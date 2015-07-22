@@ -16,9 +16,9 @@ As the hash result will be a human unreadable string with letters and numbers, i
 
 For example, if you choose "MyPassworK" as your primary password, and the name of the website you are going to use on as the variation, then you can get following result:
 
-    MyPassworK + facebook → JnB64zCAYS6KJ4Wq
-    MyPassworK + twitter → KpKMZ23f1GzMdLMz
-    MyPassworK + google → FTQfmLY2psY3jFfu
+    MyPassworK + facebook → fCb5ADZh2pQpK5Lq
+    MyPassworK + twitter → HZrqB6YYBBdW98GC
+    MyPassworK + google → HUL17S6dePbyriCQ
     ...
 
 And the good news is, from now on, all you need to know is the primary password, and the website you are going to login :)
@@ -29,9 +29,9 @@ Since PassworK only do the hash work, it is more important that you setup the ru
 
 For example, almost the same as the above, but you change your primary password to "MyPassw0rk" (change letter o to number 0), and capitalize the second letter of the website, the result will be totally different:
 
-    MyPassw0rK + fAcebook → Ns8i54SUxX2KRKcN
-    MyPassw0rK + tWitter → 2xxidW9YbmmukB5S
-    MyPassw0rK + gOogle → DfVSwwn4xGQo8i7b
+    MyPassw0rK + fAcebook → M7WS5L54G6QK97F6
+    MyPassw0rK + tWitter → XMYCxGcEarF3sCQR
+    MyPassw0rK + gOogle → SwyqE4UMuMf6oTPR
     ...
 
 Just remember, you are the king to your passwords, you make up the rules and follow them.
@@ -101,9 +101,9 @@ No, and never will.
 
 ### Can I customize the way passwords are generated?
 
-No at the moment. However, customization might be added such as choose the starting index of the generated Bitcoin address, or the length of other number rather than 16, or even use part of the Bitcoin private key instead of public key.
+No at the moment. However, customization might be added such as choose the starting index of the generated Bitcoin address, or the length of other number rather than 16.
 
-But adding customization might make users confused, if they don't remember the settings they choose, and might lose the password permanently.
+But adding customization might make users confused, if they don't remember the settings they choose, they might lose the password permanently.
 
 ### Should I switch if I already use password managers like 1Password/Lastpass/Enpass?
 
