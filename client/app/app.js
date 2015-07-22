@@ -53,4 +53,10 @@ angular.module('passworkApp', [
 });
 
 // Prompt user to add it to homescreen
-addToHomescreen({});
+
+var addtohome = addToHomescreen({
+  autostart: false
+});
+setTimeout(function() {
+  addtohome.show();
+}, 2000);
