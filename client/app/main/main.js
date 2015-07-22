@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('passworkApp')
-  .config(function ($stateProvider) {
+  .config(function($stateProvider) {
     $stateProvider
       .state('main', {
         url: '/',

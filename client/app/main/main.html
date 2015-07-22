@@ -2,37 +2,56 @@
 
 <header class="hero-unit" id="banner">
   <div class="container">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">Kick-start your next web app with Angular Fullstack</p>
-    <img src="assets/images/yeoman.png" alt="I'm Yeoman">
+    <h1>PassworK</h1>
+    <p class="lead">A little extra worK over your Password ;)</p>
+    <p class="lead">Hash( password + website ) → yOuRnEwPa5sw0rD</p>
+    <a href="#thing-form">
+      <img src="assets/images/apple-touch-icon-128x128.png" alt="PassworK">
+      <p>
+        Try It Now.
+      </p>
+    </a>
   </div>
 </header>
 
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header">Features:</h1>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in awesomeThings">
-        <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}<button type="button" class="close" ng-click="deleteThing(thing)">&times;</button></a></li>
-      </ul>
+      <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
     </div>
   </div>
 
-  <form class="thing-form">
-    <label>Syncs in realtime across clients</label>
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">How it works:</h1>
+    </div>
+  </div>
+
+  <form class="thing-form" id="thing-form">
+    <label>Combine your common passphrase...</label>
     <p class="input-group">
-      <input type="text" class="form-control" placeholder="Add a new thing here." ng-model="newThing">
+      <input type="{{ privateInfoType }}" class="form-control" placeholder="Password you prefer to use" ng-model="privateInfo" ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 1500, 'blur': 0 } }">
       <span class="input-group-btn">
-        <button type="submit" class="btn btn-primary" ng-click="addThing()">Add New</button>
+        <button class="btn btn-primary" ng-click="togglePrivateInfo()">Show</button>
       </span>
+    </p>
+    <label>With the website info that varies...</label>
+    <p class="input-group">
+      <input type="{{ siteInfoType }}" class="form-control" placeholder="Some text for the website" ng-model="siteInfo">
+      <span class="input-group-btn">
+        <button class="btn btn-primary" ng-click="toggleSiteInfo()">Show</button>
+      </span>
+    </p>
+    <label>To generate your new password :)</label>
+    <p class="input-group">
+      <input type="text" class="form-control" readonly="readonly" value="{{ privateInfo + siteInfo | brainAddress | substring:2:18 }}" ng-click="onTextClick($event)">
+      <span class="input-group-btn">
+        <button class="btn btn-primary" ng-click="copyPassword()">Copy</button>
+      </span>
+    </p>
+    <label>Try again to see if you get the same result.</label>
+    <p>
+      Feeling confused? Click <a ng-href="/about">here</a> to find out more.
     </p>
   </form>
 </div>
-
-<footer class="footer">
-  <div class="container">
-      <p>Angular Fullstack v2.0.13 |
-        <a href="https://twitter.com/tyhenkel">@tyhenkel</a> |
-         <a href="https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open">Issues</a></p>
-  </div>
-</footer>

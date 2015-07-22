@@ -1,21 +1,32 @@
-# EditorConfig helps developers define and maintain consistent
-# coding styles between different editors and IDEs
-# editorconfig.org
+# Global editor config
+# Find out more on http://editorconfig.org
 
 root = true
 
-
+# Common config
 [*]
-
-# Change these settings to your own preference
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = false
 indent_style = space
 indent_size = 2
 
-# We recommend you to keep these unchanged
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
+# File depenedant config
+[*.coffee]
+indent_size = 2
 
-[*.md]
-trim_trailing_whitespace = false
+[*.css]
+indent_size = 2
+
+[*.html]
+indent_size = 2
+
+[*.js]
+indent_size = 2
+
+[*.py]
+indent_size = 4
+
+[*.scss]
+indent_size = 4
