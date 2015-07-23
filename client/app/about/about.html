@@ -5,9 +5,9 @@
     <div class="col-lg-12">
       <h1>PassworK</h1>
 
-      <p><img src="assets/images/apple-touch-icon-256x256.png" alt="PassworK" /></p>
+      <p><img src="assets/images/passwork-256x256.png" alt="PassworK" /></p>
 
-      <p>Managing passwords could be a disaster. People are not so good at remembering things, so they tend to use the same passwords or patterns on all the websites they login. Once one site get compromised and their passwords expose, users' identity on other sites could be affected.</p>
+      <p>Managing passwords could be a disaster. People are not so good at remembering things, so they tend to use the same passwords or patterns on all the websites they login. Once one site gets compromised and their passwords expose, users' identity on other sites could be affected.</p>
 
       <p>And that's where PassworK gets in, putting a little extra work over your password, to generate a robust new one ;)</p>
 
@@ -23,12 +23,10 @@
 
       <p>For example, if you choose "MyPassworK" as your primary password, and the name of the website you are going to use on as the variation, then you can get following result:</p>
 
-      <pre><code>
-    MyPassworK + facebook → fCb5ADZh2pQpK5Lq
-    MyPassworK + twitter → HZrqB6YYBBdW98GC
-    MyPassworK + google → HUL17S6dePbyriCQ
-    ...
-      </code></pre>
+      <pre><code>MyPassworK + facebook → fCb5ADZh2pQpK5Lq
+MyPassworK + twitter → HZrqB6YYBBdW98GC
+MyPassworK + google → HUL17S6dePbyriCQ
+...</code></pre>
 
       <p>And the good news is, from now on, all you need to know is the primary password, and the website you are going to login :)</p>
 
@@ -38,12 +36,10 @@
 
       <p>For example, almost the same as the above, but you change your primary password to "MyPassw0rk" (change letter o to number 0), and capitalize the second letter of the website, the result will be totally different:</p>
 
-      <pre><code>
-    MyPassw0rK + fAcebook → M7WS5L54G6QK97F6
-    MyPassw0rK + tWitter → XMYCxGcEarF3sCQR
-    MyPassw0rK + gOogle → SwyqE4UMuMf6oTPR
-    ...
-      </code></pre>
+      <pre><code>MyPassw0rK + fAcebook → M7WS5L54G6QK97F6
+MyPassw0rK + tWitter → XMYCxGcEarF3sCQR
+MyPassw0rK + gOogle → SwyqE4UMuMf6oTPR
+...</code></pre>
 
       <p>Just remember, you are the king to your passwords, you make up the rules and follow them.</p>
 
@@ -69,7 +65,7 @@
 
       <p>Simple answer: PassworK uses hash algorithm to generate a string, and uses part of it as the password.</p>
 
-      <p>More detail: PassworK is inspired by <a href="https://brainwallet.org/">brainwallet</a>, use the text you input as a passphrase, then create a key pair using <a href="https://github.com/bitpay/bitcore">bitcore</a> Bitcoin library, from that a Bitcoin address will be generated, and the characters from 2 to 17 will be used as your password.</p>
+      <p>More detail: PassworK is inspired by <a href="https://brainwallet.org/">brainwallet</a>, use the text you input as a passphrase, then create a key pair using <a href="https://github.com/bitpay/bitcore">bitcore</a> Bitcoin library, from that a Bitcoin key pair will be generated, and the characters from 2 to 17 will be used as your password.</p>
 
       <p>And you can find out more about Bitcoin address from the <a href="https://en.bitcoin.it/wiki/Address">Wiki page</a> if you doubt about the password will be random enough.</p>
 
@@ -84,20 +80,16 @@
       <p>Simply add something markable as part of the variation then it will just work fine. For example, you can add IDs to make passwords for different accounts
       on twitter:</p>
 
-      <pre><code>
-    alice@twitter
-    bob@twitter
-    caren@twitter
-      </code></pre>
+      <pre><code>alice@twitter
+bob@twitter
+caren@twitter</code></pre>
 
       <p>or for the same account but add season as postfix because you prefer to change every few months:</p>
 
-      <pre><code>
-    twitter_in_spring
-    twitter_in_summer
-    twitter_in_fall
-    twitter_in_winter
-      </code></pre>
+      <pre><code>twitter_in_spring
+twitter_in_summer
+twitter_in_fall
+twitter_in_winter</code></pre>
 
       <p>The examples above just demonstrates how PassworK works in a simple way, but it is YOU to set up the rules to make your passwords.</p>
 
@@ -117,9 +109,9 @@
 
       <h3>Can I customize the way passwords are generated?</h3>
 
-      <p>No at the moment. However, customization might be added such as choose the starting index of the generated Bitcoin address, or the length of other number rather than 16, or even use part of the Bitcoin private key instead of public key.</p>
+      <p>No at the moment. However, customization might be added such as choose the starting index of the generated Bitcoin key pair, or the length of other number rather than 16.</p>
 
-      <p>But adding customization might make users confused, if they don't remember the settings they choose, and might lose the password permanently.</p>
+      <p>But adding customization might make users confused, if they don't remember the settings they choose, they might lose the password permanently.</p>
 
       <h3>Should I switch if I already use password managers like 1Password/Lastpass/Enpass?</h3>
 
@@ -146,9 +138,19 @@
 
       <p>Umm... I really appreciate it, but did you know that Paypal charges a high 5% + $0.05 micro-payments rate? Unless you wanna giveaway a bunch of bucks, otherwise let's just save some money by using Bitcoin :P</p>
 
+      <h2>Credits</h2>
+
+      <p>PassworK is mainly based on the following work:</p>
+
+      <ul>
+        <li>Framework: <a href="https://github.com/DaftMonk/generator-angular-fullstack">Angular Fullstack by @daftmonk</a></li>
+        <li>Library: <a href="https://github.com/bitpay/bitcore">Bitcore by @bitpay</a></li>
+        <li>Logo: <a href="http://findicons.com/icon/607091/password_manager">Password Manager by Jackson</a></li>
+      </ul>
+
       <h2>License</h2>
 
-      <p>Apache License 2.0</p>
+      <p><a href="http://opensource.org/licenses/bsd-license.php">BSD license</a></p>
     </div>
   </div>
 </div>
