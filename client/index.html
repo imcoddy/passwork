@@ -10,12 +10,16 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <base href="/">
-  <title></title>
-  <meta name="description" content="">
+  <title>PassworK - Best Way To Generate Your Rememberable Passwords</title>
+  <meta name="Passwork" content="A little extra worK over your Password ;)">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(client) app/vendor.css -->
   <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/add-to-homescreen/style/addtohomescreen.css" />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css({.tmp,client}) app/app.css -->
@@ -23,6 +27,8 @@
   <!-- injector:css -->
   <!-- endinjector -->
   <!-- endbuild -->
+  <link rel="apple-touch-icon" href="assets/images/passwork-256x256.png" sizes="256x256">
+  <link rel="apple-touch-icon" href="assets/images/passwork-128x128.png" sizes="128x128">
 </head>
 
 <body ng-app="passworkApp">
@@ -69,6 +75,7 @@
   <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="bower_components/bitcore/bitcore.min.js"></script>
   <script src="bower_components/crypto-js/index.js"></script>
+  <script src="bower_components/add-to-homescreen/src/addtohomescreen.min.js"></script>
   <!-- endbower -->
   <script src="socket.io-client/socket.io.js"></script>
   <!-- endbuild -->
