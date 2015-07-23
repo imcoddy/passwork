@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Passwork by imcoddy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Passwork</h1>
+      <h2 class="project-tagline"></h2>
+      <a href="https://github.com/imcoddy/passwork" class="btn">View on GitHub</a>
+      <a href="https://github.com/imcoddy/passwork/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/imcoddy/passwork/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="passwork" class="anchor" href="#passwork" aria-hidden="true"><span class="octicon octicon-link"></span></a>PassworK</h1>
+
+<p><img src="https://passwork.herokuapp.com/assets/images/64aa250e.passwork-256x256.png" alt=""></p>
+
+<p>Managing passwords could be a disaster. People are not so good at remembering things, so they tend to use the same passwords or patterns on all the websites they login. Once one site gets compromised and their passwords expose, users' identity on other sites could be affected.</p>
+
+<p>And that's where PassworK gets in, putting a little extra work over your password, to generate a robust new one ;)</p>
+
+<h2>
+<a id="concept" class="anchor" href="#concept" aria-hidden="true"><span class="octicon octicon-link"></span></a>Concept</h2>
+
+<p>The concept of PassworK is simple: Use your input as a key, and use hash algorithm to generate a fixed length password.</p>
+
+<p>The key will be combined by two parts, one is your primary password, which only you know it and no one else knows, and the other part is something related to the website, which will varies from one to one.</p>
+
+<p>As the hash result will be a human unreadable string with letters and numbers, it will be perfect to be used as a strong password.</p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>For example, if you choose "MyPassworK" as your primary password, and the name of the website you are going to use on as the variation, then you can get following result:</p>
+
+<pre><code>MyPassworK + facebook → fCb5ADZh2pQpK5Lq
+MyPassworK + twitter → HZrqB6YYBBdW98GC
+MyPassworK + google → HUL17S6dePbyriCQ
+...
+</code></pre>
+
+<p>And the good news is, from now on, all you need to know is the primary password, and the website you are going to login :)</p>
+
+<h3>
+<a id="advancing-usage" class="anchor" href="#advancing-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advancing Usage</h3>
+
+<p>Since PassworK only do the hash work, it is more important that you setup the rules for the inputs.</p>
+
+<p>For example, almost the same as the above, but you change your primary password to "MyPassw0rk" (change letter o to number 0), and capitalize the second letter of the website, the result will be totally different:</p>
+
+<pre><code>MyPassw0rK + fAcebook → M7WS5L54G6QK97F6
+MyPassw0rK + tWitter → XMYCxGcEarF3sCQR
+MyPassw0rK + gOogle → SwyqE4UMuMf6oTPR
+...
+</code></pre>
+
+<p>Just remember, you are the king to your passwords, you make up the rules and follow them.</p>
+
+<h2>
+<a id="faq" class="anchor" href="#faq" aria-hidden="true"><span class="octicon octicon-link"></span></a>FAQ</h2>
+
+<h3>
+<a id="what-does-passwork-stand-for" class="anchor" href="#what-does-passwork-stand-for" aria-hidden="true"><span class="octicon octicon-link"></span></a>What does PassworK stand for?</h3>
+
+<p>PassworK could be thought of the combination of password and work, which as what it does, doing a little extra work over your password. Or you can think it comes from the word Password but replaced the last letter by K, which implies a Key to generate your password.</p>
+
+<h3>
+<a id="why-should-i-use-passwork" class="anchor" href="#why-should-i-use-passwork" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why should I use PassworK?</h3>
+
+<p>I have seen so many people use their names, birthdays and phone numbers as passwords, which is quite easy to guess once the attacker know about your information. If you have your own ways to create strong passwords you are probably fine, otherwise PassworK might worth a try.</p>
+
+<h3>
+<a id="is-passwork-safe" class="anchor" href="#is-passwork-safe" aria-hidden="true"><span class="octicon octicon-link"></span></a>Is PassworK safe?</h3>
+
+<p>Safety is relative, depending on how you look at it. If you use passwords like <em>19840214</em> or <em>iloveapple</em> which can be easily remembered at a glance,  then the passwords generated by PassworK will be a lot safer.</p>
+
+<p>On the other hand, if other people know the way how you use PassworK, they might be able to get the same password out. But this is not different than hackers trying your password on other sites once they get one of your password.</p>
+
+<p>You still need to be careful to make up the rules you use on PassworK.</p>
+
+<h3>
+<a id="how-are-the-passwords-generated" class="anchor" href="#how-are-the-passwords-generated" aria-hidden="true"><span class="octicon octicon-link"></span></a>How are the passwords generated?</h3>
+
+<p>Simple answer: PassworK uses hash algorithm to generate a string, and uses part of it as the password.</p>
+
+<p>More detail: PassworK is inspired by <a href="https://brainwallet.org/">brainwallet</a>, use the text you input as a passphrase, then create a key pair using <a href="https://github.com/bitpay/bitcore">bitcore</a> Bitcoin library, from that a Bitcoin key pair will be generated, and the characters from 2 to 17 will be used as your password.</p>
+
+<p>And you can find out more about Bitcoin address from the <a href="https://en.bitcoin.it/wiki/Address">Wiki page</a> if you doubt about the password will be random enough.</p>
+
+<h3>
+<a id="why-does-passwork-use-bitcoin-related-stuffs" class="anchor" href="#why-does-passwork-use-bitcoin-related-stuffs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why does PassworK use Bitcoin related stuffs?</h3>
+
+<p>The original idea is once a password is generated, the corresponding Bitcoin address will be checked, and a warning will be given out if the address has transaction info, as it means someone else has generated the same address and used it before.</p>
+
+<p>This feature is under development though. It might not be so accurate, but it could be a good indication of your passwords' security.</p>
+
+<h3>
+<a id="how-to-set-different-passwords-for-the-same-site" class="anchor" href="#how-to-set-different-passwords-for-the-same-site" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to set different passwords for the same site?</h3>
+
+<p>Simply add something markable as part of the variation then it will just work fine. For example, you can add IDs to make passwords for different accounts on twitter:</p>
+
+<pre><code>alice@twitter
+bob@twitter
+caren@twitter
+</code></pre>
+
+<p>Or for the same account but add season as postfix because you prefer to change every few months:</p>
+
+<pre><code>twitter_in_spring
+twitter_in_summer
+twitter_in_fall
+twitter_in_winter
+</code></pre>
+
+<p>The examples above just demonstrates how PassworK works in a simple way, but it is YOU to set up the rules to make your passwords.</p>
+
+<p>Also, since PassworK can accept a long sentence with spaces. you can use a long text as your primary password and variation as well. Use it wisely.</p>
+
+<h3>
+<a id="how-can-i-trust-passwork" class="anchor" href="#how-can-i-trust-passwork" aria-hidden="true"><span class="octicon octicon-link"></span></a>How can I trust PassworK?</h3>
+
+<p>Earning trust is never easy, that's why PassworK is open source and let the public examine.</p>
+
+<p>If you don't trust PassworK yet, you can check the generated password on <a href="https://brainwallet.org/">brainwallet</a>, or use other libraries to see if the same output can be generated or not.</p>
+
+<p>And of course, you can set up the algorithm yourself. PassworK is made for Newbies after all.</p>
+
+<h3>
+<a id="does-passwork-collect-passwords" class="anchor" href="#does-passwork-collect-passwords" aria-hidden="true"><span class="octicon octicon-link"></span></a>Does PassworK collect passwords?</h3>
+
+<p>No, and never will.</p>
+
+<h3>
+<a id="can-i-customize-the-way-passwords-are-generated" class="anchor" href="#can-i-customize-the-way-passwords-are-generated" aria-hidden="true"><span class="octicon octicon-link"></span></a>Can I customize the way passwords are generated?</h3>
+
+<p>No at the moment. However, customization might be added such as choose the starting index of the generated Bitcoin key pair, or the length of other number rather than 16.</p>
+
+<p>But adding customization might make users confused, if they don't remember the settings they choose, they might lose the password permanently.</p>
+
+<h3>
+<a id="should-i-switch-if-i-already-use-password-managers-like-1passwordlastpassenpass" class="anchor" href="#should-i-switch-if-i-already-use-password-managers-like-1passwordlastpassenpass" aria-hidden="true"><span class="octicon octicon-link"></span></a>Should I switch if I already use password managers like 1Password/Lastpass/Enpass?</h3>
+
+<p>If you already use password managers like these, you are already more cautious about security than most of the others. And my suggestion is, keep on using whichever you are using now.</p>
+
+<p>However, it is still worthy trying PassworK out. Rather than using the auto-generated passwords, PassworK can make sure that you can create the same password again, which can be handy in some situations.</p>
+
+<p>Personally, I use PassworK to generate passwords gradually, and use Enpass to sync between Mac and iPhone.</p>
+
+<h3>
+<a id="how-can-i-contribute-this-project" class="anchor" href="#how-can-i-contribute-this-project" aria-hidden="true"><span class="octicon octicon-link"></span></a>How can I contribute this project?</h3>
+
+<p>Share PassworK to your friends, help them make better passwords!</p>
+
+<p>And of course, Pull Requests and Issues are always welcome :)</p>
+
+<h3>
+<a id="i-love-this-idea-and-would-love-to-donate" class="anchor" href="#i-love-this-idea-and-would-love-to-donate" aria-hidden="true"><span class="octicon octicon-link"></span></a>I love this idea and would love to donate.</h3>
+
+<p>Thanks for your appreciation. You can donate bitcoins to <a href="https://github.com/imcoddy" class="user-mention">@imcoddy</a> on twitter via <a href="https://github.com/changetip" class="user-mention">@changetip</a>, or send to the following address directly: 1DNpE2i4H4bCRd6ezcgv3bL13Uc8GCEEPo</p>
+
+<p><a href="https://blockchain.info/address/1DNpE2i4H4bCRd6ezcgv3bL13Uc8GCEEPo"><img src="https://blockchain.info/qr?data=1DNpE2i4H4bCRd6ezcgv3bL13Uc8GCEEPo&amp;size=200" alt="1DNpE2i4H4bCRd6ezcgv3bL13Uc8GCEEPo"></a></p>
+
+<p>Yeah the address above is generated by the same method PassworK uses, take it out if you happened to find out my password ┗(°0°)┛</p>
+
+<h3>
+<a id="wait-what-if-i-want-to-donate-by-paypal" class="anchor" href="#wait-what-if-i-want-to-donate-by-paypal" aria-hidden="true"><span class="octicon octicon-link"></span></a>Wait... What if I want to donate by Paypal?</h3>
+
+<p>Umm... I really appreciate it, but did you know that Paypal charges a high 5% + $0.05 micro-payments rate? Unless you wanna giveaway a bunch of bucks, otherwise let's just save some money by using Bitcoin :P</p>
+
+<h2>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span class="octicon octicon-link"></span></a>Credits</h2>
+
+<p>PassworK is mainly based on the following work:</p>
+
+<ul>
+<li>Framework: <a href="https://github.com/DaftMonk/generator-angular-fullstack">Angular Fullstack by @daftmonk</a>
+</li>
+<li>Library: <a href="https://github.com/bitpay/bitcore">Bitcore by @bitpay</a>
+</li>
+<li>Logo: <a href="http://findicons.com/icon/607091/password_manager">Password Manager by Jackson</a>
+</li>
+</ul>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p><a href="http://opensource.org/licenses/bsd-license.php">BSD license</a></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/imcoddy/passwork">Passwork</a> is maintained by <a href="https://github.com/imcoddy">imcoddy</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-65365798-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
+
