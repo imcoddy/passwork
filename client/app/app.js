@@ -5,6 +5,7 @@ angular.module('passworkApp', [
     'ngResource',
     'ngSanitize',
     'btford.socket-io',
+    'monospaced.qrcode',
     'ui.router',
     'ui.bootstrap'
   ])

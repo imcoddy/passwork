@@ -21,19 +21,11 @@ angular.module('passworkApp')
   .controller('MainCtrl', function($scope, $http, socket) {
     $scope.privateInfoType = 'password';
     $scope.siteInfoType = 'password';
+    $scope.showQRCode = false;
     $scope.alerts = [];
-
 
     $scope.closeAlert = function(index) {
       $scope.alerts.splice(index, 1);
-    };
-
-    $scope.copyPassword = function() {
-      //TODO implement copy password
-      $scope.alerts.push({
-        type: 'danger',
-        msg: 'Sorry this feature is not finished yet at the moment. Please click on the text and select it yourself.'
-      });
     };
 
     $scope.togglePrivateInfo = function() {

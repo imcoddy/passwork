@@ -46,9 +46,13 @@
     <p class="input-group">
       <input type="text" class="form-control" readonly="readonly" value="{{ privateInfo + siteInfo | brainAddress | substring:2:18 }}" ng-click="onTextClick($event)" tabindex="3">
       <span class="input-group-btn">
-        <button class="btn btn-primary" ng-click="copyPassword()">Copy</button>
+        <button class="btn btn-primary" ng-click="showQRCode = !showQRCode"><i class="glyphicon glyphicon-qrcode"></i></button>
       </span>
     </p>
+    <p ng-show="showQRCode">
+      <qrcode version="2" error-correction-level="M" size="200" data="{{ privateInfo + siteInfo | brainAddress | substring:2:18 }}"></qrcode>
+    </p>
+
     <label>Try again to see if you get the same result.</label>
     <p>
       Feeling confused? Click <a ng-href="/about">here</a> to find out more.
