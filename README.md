@@ -6,6 +6,8 @@ Managing passwords could be a disaster. People are not so good at remembering th
 
 And that's where PassworK gets in, putting a little extra work over your password, to generate a robust new one ;)
 
+Live demo: [https://passwork.herokuapp.com/](https://passwork.herokuapp.com/)
+
 ## Concept
 
 The concept of PassworK is simple: Use your input as a key, and use hash algorithm to generate a fixed length password.
